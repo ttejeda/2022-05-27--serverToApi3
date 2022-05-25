@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const personsRoutes = require('./routes/persons');
+const main = require('./routes/main');
 
 //Hacer una promesa para no tener una conección asíncrona.
 mongoose.Promise = global.Promise;
@@ -10,6 +11,7 @@ let app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:false}));
 app.use(personsRoutes);
+app.use(main);
 
 mongoose.connect(
 `mongodb+srv://ttejeda:jOIJJnQ6gEILygAu@cluster0.uy9zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, //Conección al cluster de MongoDB Atlas
