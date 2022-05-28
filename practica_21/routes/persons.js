@@ -7,8 +7,9 @@ const Person = require('../models/person.js');
 //Definir una ruta donde se imprimirá el objeto json.
 router.get('/persons', function(req, res, next){
     Person.find(function(err, persons){
-        if(err) return next(err); //Regresa un error.
-        res.json(persons); //Se regresa la información que pedimos.
+        if(err) return next(err);
+        //res.json(persons); //Se regresa la información que pedimos.
+        res.render('personsIndex', {persons}); //Se renderiza personIndex para ver la tabla de las personas registradas.
     });
 });
 

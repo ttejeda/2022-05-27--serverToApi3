@@ -9,6 +9,7 @@ mongoose.Promise = global.Promise;
 let app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public')); //Se define la ruta de los estilos.
 app.use(express.urlencoded({extended:false}));
 app.use(personsRoutes);
 app.use(main);
